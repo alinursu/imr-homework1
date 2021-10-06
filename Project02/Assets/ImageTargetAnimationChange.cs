@@ -15,18 +15,14 @@ public class ImageTargetAnimationChange : MonoBehaviour
     {
         GameObject cactus = this.gameObject.transform.GetChild(0).gameObject;
         GameObject fox = this.gameObject.transform.GetChild(1).gameObject;
-
+         
         float xCactus = cactus.transform.position.x;
         float xFox = fox.transform.position.x;
-        /*
-        print(xCactus);
-        print(xFox);*/
-        
-        /*
-        if (System.Math.Abs(xCactus - xFox) != 0 && System.Math.Abs(xCactus - xFox) <= 100)
-        {
-            print("close");
-        }*/
 
+        if (System.Math.Abs(xCactus - xFox) != 0 && System.Math.Abs(xCactus - xFox) <= 0.10)
+        {
+            var foxAnimation = fox.transform.GetChild(0).GetComponent<Animator>();
+            foxAnimation.Play("Fox_Attack_Paws");
+        }
     }
 }
